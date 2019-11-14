@@ -1,4 +1,0 @@
-- remind of how venv works [ ]
-- circular import [ ]
-- read HTML Markup introduction [ ]
-

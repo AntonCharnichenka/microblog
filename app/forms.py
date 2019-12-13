@@ -48,3 +48,8 @@ class EditProfileForm(FlaskForm):
                 raise ValidationError(
                     'Please use a different username as "{}" is already occupied'.format(username.data)
                 )
+
+
+class PostForm(FlaskForm):
+    post = TextAreaField('Say something', validators=[DataRequired(), Length(min=1, max=140)])
+    submit = SubmitField("Submit")

@@ -3,3 +3,5 @@ flask-SQLAlchemy
 flask-migrate
 flask-login
 flask-wtf
+flask-mail
+pyjwt

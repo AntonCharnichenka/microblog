@@ -6,8 +6,10 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_login import LoginManager
 from flask_mail import Mail
+from flask_bootstrap import Bootstrap
 
 from config import Config
+
 
 app = Flask(__name__)
 app.config.from_object(Config)
@@ -16,6 +18,7 @@ db_migration_engine = Migrate(app, db)
 login_manager = LoginManager(app)
 login_manager.login_view = 'login'
 mail = Mail(app)
+bootstrap = Bootstrap(app)
 
 # Sending Errors by Email and Logging to a File
 if not app.debug:

@@ -17,13 +17,16 @@ app.config.from_object(Config)
 db = SQLAlchemy(app)
 db_migration_engine = Migrate(app, db)
 login_manager = LoginManager(app)
-login_manager.login_view = 'login'
+login_manager.login_view = 'auth.login'
 mail = Mail(app)
 bootstrap = Bootstrap(app)
 moment = Moment(app)
 
 from app.errors import bp as errors_bp
 app.register_blueprint(errors_bp)
+
+from app.auth import bp as auth_bp
+app.register_blueprint(auth_bp, url_prefix='/auth')
 
 # Sending Errors by Email and Logging to a File
 if not app.debug:

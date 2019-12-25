@@ -28,6 +28,9 @@ app.register_blueprint(errors_bp)
 from app.auth import bp as auth_bp
 app.register_blueprint(auth_bp, url_prefix='/auth')
 
+from app.main import bp as main_bp
+app.register_blueprint(main_bp)
+
 # Sending Errors by Email and Logging to a File
 if not app.debug:
     if app.config['MAIL_SERVER']:
@@ -60,4 +63,4 @@ if not app.debug:
     app.logger.info('Microblog startup')
 
 # TODO: add this error ignoring
-from app import routes, models
+from app import models

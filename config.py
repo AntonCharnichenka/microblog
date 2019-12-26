@@ -1,11 +1,14 @@
 import os
+from dotenv import load_dotenv
 
 BASEDIR = os.path.abspath(os.path.dirname(__file__))
-DEFAULT_VALUE = 'lolkek'
+load_dotenv(os.path.join(BASEDIR, '.env'))
+
+DEFAULT_SECRET_KEY = 'lolkek'
 
 
 class Config:
-    SECRET_KEY = os.environ.get('SECRET_KEY') or DEFAULT_VALUE
+    SECRET_KEY = os.environ.get('SECRET_KEY') or DEFAULT_SECRET_KEY
 
     SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or 'sqlite:///{}'.format(os.path.join(BASEDIR, 'app.db'))
     SQLALCHEMY_TRACK_MODIFICATION = False
